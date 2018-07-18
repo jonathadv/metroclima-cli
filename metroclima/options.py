@@ -51,5 +51,3 @@ class FileTypes(Enum):
     CSV = 'csv'
     JSON = 'json'
     XLS = 'xls'
-
-

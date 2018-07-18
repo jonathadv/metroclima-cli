@@ -1,11 +1,10 @@
 import sys
 
-from click import option, version_option, group, Choice
+from click import Choice, group, option, version_option
 
 from . import metroclima
-from .__version__ import __version__, __title__
-from .options import FileTypes, Sensors, Stations, YEARS, QUARTERS
-from .options import PostKeys
+from .__version__ import __title__, __version__
+from .options import QUARTERS, YEARS, FileTypes, PostKeys, Sensors, Stations
 
 FILE_TYPES = [t.value for t in FileTypes]
 SENSORS = [s.name for s in Sensors]
@@ -42,6 +41,7 @@ def cli():
 @option('-d', '--download', is_flag=True, default=False, help="Downloads ")
 def get_single_dump(filetype, year, quarter, sensor, station, download):
     """Retrieve dump from Metroclima site"""
+
     options = {
         PostKeys.FILE_TYPE.value: filetype,
         PostKeys.YEAR.value: int(year),
