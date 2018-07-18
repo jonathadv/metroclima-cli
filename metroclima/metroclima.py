@@ -1,3 +1,9 @@
+"""
+Metroclima database dumper
+
+Main module
+"""
+
 import os
 from pathlib import Path
 
@@ -12,6 +18,7 @@ XPATH_ERROR = '/html/body/div[6]/div[1]/div'
 
 
 class MetroclimaError(Exception):
+    """ Domain exception """
     pass
 
 
@@ -33,8 +40,8 @@ def download_file(url, destination_path=None):
         with open(file_name, 'w') as file:
             file.write(resp.text)
         return file_name
-    else:
-        raise MetroclimaError('Unable to download file. HTTP Code = {}'.format(resp.status_code))
+
+    raise MetroclimaError('Unable to download file. HTTP Code = {}'.format(resp.status_code))
 
 
 def retrieve_download_url(post_options):
@@ -44,12 +51,12 @@ def retrieve_download_url(post_options):
     :param post_options: A dict with the POST call options found in metroclima.options.PostKeys
     :return: download_url: The URL of the generated file
     """
-    r = SESSION.post(URL, data=post_options)
-    for download_url in r.html.links:
+    res = SESSION.post(URL, data=post_options)
+    for download_url in res.html.links:
         if '.{}'.format(post_options.get(PostKeys.FILE_TYPE.value)) in download_url:
             return download_url
 
-    elem = r.html.xpath(XPATH_ERROR)
+    elem = res.html.xpath(XPATH_ERROR)
 
     if elem:
         text = elem[0].text.split('\n')[1:3]

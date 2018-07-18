@@ -1,3 +1,11 @@
+"""
+Metroclima database dumper
+
+CLI implementation
+"""
+# pylint: disable=too-many-arguments
+# pylint: disable=unexpected-keyword-arg
+
 import sys
 
 from click import Choice, group, option, version_option
@@ -31,14 +39,30 @@ def cli():
 
 
 @cli.command('get')
-@option('-f', '--filetype', type=Choice(FILE_TYPES), default='csv', help='The dump file type')
-@option('-y', '--year', type=Choice([str(i) for i in YEARS]), default=YEAR_OPTIONS[-1],
-        help='The year to get information')
-@option('-q', '--quarter', type=Choice([str(q) for q in QUARTERS]), default=str(QUARTER_OPTIONS[0]),
-        help='The quarter to get information')
-@option('-s', '--sensor', type=Choice(SENSORS), default=SENSORS[0], help='The sensor to get information')
-@option('-l', '--station', type=Choice(STATIONS), default=STATIONS[0], help='The station to get information')
-@option('-d', '--download', is_flag=True, default=False, help="Downloads ")
+@option('-f', '--filetype',
+        type=Choice(FILE_TYPES),
+        default='csv',
+        help='The dump file type')
+@option('-y', '--year',
+        type=Choice([str(i) for i in YEARS]),
+        default=YEAR_OPTIONS[-1],
+        help='Choose which year')
+@option('-q', '--quarter',
+        type=Choice([str(q) for q in QUARTERS]),
+        default=str(QUARTER_OPTIONS[0]),
+        help='Choose which quarter')
+@option('-s', '--sensor',
+        type=Choice(SENSORS),
+        default=SENSORS[0],
+        help='Choose the type of sensor')
+@option('-l', '--station',
+        type=Choice(STATIONS),
+        default=STATIONS[0],
+        help='Choose which station')
+@option('-d', '--download',
+        is_flag=True,
+        default=False,
+        help="Downloads ")
 def get_single_dump(filetype, year, quarter, sensor, station, download):
     """Retrieve dump from Metroclima site"""
 
@@ -63,9 +87,10 @@ def get_single_dump(filetype, year, quarter, sensor, station, download):
             _stderr('File download at ', end='')
             _stdout(file_name)
 
-    except metroclima.MetroclimaError as e:
-        _stderr(e)
+    except metroclima.MetroclimaError as err:
+        _stderr(err)
 
 
 def run():
+    """ Call cli setting the program title """
     cli(prog_name=__title__)
