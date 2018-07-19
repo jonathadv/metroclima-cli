@@ -84,7 +84,7 @@ def get_single_dump(filetype, year, quarter, sensor, station, download):
             _stderr('Downloading file...')
 
             file_name = metroclima.download_file(url)
-            _stderr('File download at ', end='')
+            _stderr('File download at:')
             _stdout(file_name)
 
     except metroclima.MetroclimaError as err:
