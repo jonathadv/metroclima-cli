@@ -5,6 +5,37 @@ This is a simple Python tool to retrieve information from  the Porto Alegre city
 
 It posts the given options to the Metroclima web site and returns the URL to download the generated dump file. It's possible to download the file directly.
 
+### Setup the project
+
+This project uses [Pipenv](https://github.com/pypa/pipenv) as packaging tool.
+
+```bash
+
+# Clone the project
+$ git clone https://github.com/jonathadv/metroclima-dump.git
+Cloning into 'metroclima-dump'...
+remote: Counting objects: 59, done.
+remote: Compressing objects: 100% (37/37), done.
+remote: Total 59 (delta 25), reused 54 (delta 20), pack-reused 0
+Unpacking objects: 100% (59/59), done.
+
+# Go to the directory
+$ cd metroclima-dump/
+
+# Run make install to install the project dependencies
+$ make install
+pipenv install --dev
+Pipfile.lock (b22235) out of date, updating to (42400e)...
+Locking [dev-packages] dependencies...
+Locking [packages] dependencies...
+Updated Pipfile.lock (42400e)!
+Installing dependencies from Pipfile.lock (42400e)...
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 27/27 — 00:00:12
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+
+```
+
 ### Script help
 
 ```bash
