@@ -1,5 +1,4 @@
-# Metroclima database dumper
-
+# Metroclima database CLI tool
 
 This is a simple Python tool to retrieve information from  the Porto Alegre city's Metroclima database, automating the use of the form available at http://www2.portoalegre.rs.gov.br/ceic/default.php?p_secao=52
 
