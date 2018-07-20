@@ -1,5 +1,5 @@
 """
-Metroclima database dumper
+Metroclima database CLI tool
 
 CLI caller
 """

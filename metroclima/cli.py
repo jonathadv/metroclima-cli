@@ -1,5 +1,5 @@
 """
-Metroclima database dumper
+Metroclima database CLI tool
 
 CLI implementation
 """
@@ -64,7 +64,20 @@ def cli():
         default=False,
         help="Downloads ")
 def get_single_dump(filetype, year, quarter, sensor, station, download):
-    """Retrieve dump from Metroclima site"""
+    """Retrieve dump from Metroclima site
+    :type download: bool
+    :type station: str
+    :type sensor: str
+    :type quarter: str
+    :type year: str
+    :type filetype: str
+    :param filetype: the file extension.
+    :param year: the year of reference for the data do be retrieved.
+    :param quarter: the year's quarter of reference for the data do be retrieved.
+    :param sensor: the sensor from which the information shoule be retrieved.
+    :param station: from which location the information belongs to.
+    :param download: determine if the tool should download the file or retreive the URL only.
+    """
 
     options = {
         PostKeys.FILE_TYPE.value: filetype,
