@@ -12,15 +12,15 @@ This project uses [Pipenv](https://github.com/pypa/pipenv) as packaging tool.
 ```bash
 
 # Clone the project
-$ git clone https://github.com/jonathadv/metroclima-dump.git
-Cloning into 'metroclima-dump'...
+$ git clone https://github.com/jonathadv/metroclima-cli.git
+Cloning into 'metroclima-cli'...
 remote: Counting objects: 59, done.
 remote: Compressing objects: 100% (37/37), done.
 remote: Total 59 (delta 25), reused 54 (delta 20), pack-reused 0
 Unpacking objects: 100% (59/59), done.
 
 # Go to the directory
-$ cd metroclima-dump/
+$ cd metroclima-cli/
 
 # Run make install to install the project dependencies
 $ make install
