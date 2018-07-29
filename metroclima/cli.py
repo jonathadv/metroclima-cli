@@ -64,7 +64,8 @@ def cli():
         default=False,
         help="Downloads ")
 def get_single_dump(filetype, year, quarter, sensor, station, download):
-    """Retrieve dump from Metroclima site
+    """Retrieve dump from Metroclima site"""
+    """
     :type download: bool
     :type station: str
     :type sensor: str
